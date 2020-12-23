@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>updatin student details</title>
+    {% include 'students/bootlines.html' %}
+</head>
+<body>
+<style>
+    form{
+        border: 1px grey solid;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 20px;
+        background-color: rgba(100,202,226,1);
+        box-shadow: 0 0 20px red,0 0 30px black;
+    }
+    body{
+        background-color: cadetblue;
+    }
+    btn1{
+        margin-top: 10px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <form method="POST" action="{% url 'save_update_data' student.id %}">
+                <h2 class="text-center">udate students data here....</h2>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>enter student name:</label>
+                        <input type="text" name="sname" value="{{ student.student_name }}" class="form-control" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label>enter class name:</label>
+                        <input type="text" name="cls" value="{{ student.class_name }}" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>enter section:</label>
+                        <input type="text" name="section" value="{{ student.section }}" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>enter school name:</label>
+                        <input type="text" name="school" value="{{ student.school_name }}" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>enter emai id:</label>
+                        <input type="email" name="email" value="{{ student.email }}" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>enter mobile number:</label>
+                        <input type="number" name="mobile" value="{{ student.mobile }}" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>enter odia marks:</label>
+                        <input type="number" name="odia" value="{{ student.odia_mark }}" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>enter hindi marks:</label>
+                        <input type="number" name="hindi" value="{{ student.hindi_mark }}" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>enter english mark:</label>
+                        <input type="number" name="english" value="{{ student.english_mark }}" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>enter math marks:</label>
+                        <input type="number" name="maths" value="{{ student.math_mark }}" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>enter science marks:</label>
+                        <input type="number" name="science" value="{{ student.science_mark }}" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>enter social marks:</label>
+                        <input type="number" name="social" value="{{ student.social_mark }}" class="form-control">
+                    </div>
+                </div>
+                <br>
+                <center>
+                    <input type="submit" value="Update" class="btn btn-success btn1">
+                    <input type="reset" value="Clear" class="btn btn-danger btn1"><br><br>
+                     <a href="/#/" class="btn btn-success">Goto Home Page</a>
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

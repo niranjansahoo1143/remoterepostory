@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>student details</title>
+    {% include 'students/bootlines.html' %}
+</head>
+<body>
+<h1 class="text-center" style="color: blueviolet">Student Data</h1>
+<table class="table table-bordered text-center bg-primary text-white">
+    <thead class="bg-primary">
+    <tr>
+       <th>students name</th>
+       <th>class</th>
+       <th>section</th>
+       <th>school</th>
+       <th>email</th>
+       <th>mobie</th>
+       <th>odia</th>
+       <th>hindi</th>
+       <th>english</th>
+       <th>math</th>
+       <th>science</th>
+       <th>social</th>
+       <th>action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for s in students %}
+        <tr>
+        <td>{{ s.student_name }}</td>
+        <td>{{ s.class_name }}</td>
+        <td>{{ s.section }}</td>
+        <td>{{ s.school_name }}</td>
+        <td>{{ s.email }}</td>
+        <td>{{ s.mobile }}</td>
+        <td>{{ s.odia_mark }}</td>
+        <td>{{ s.hindi_mark }}</td>
+        <td>{{ s.english_mark }}</td>
+        <td>{{ s.math_mark }}</td>
+        <td>{{ s.science_mark }}</td>
+        <td>{{ s.social_mark }}</td>
+        <td>
+            <a href="{% url 'update_data' s.id %}" class="btn btn-primary">update</a>
+            <a href="{% url 'delete_data' s.id %}" class="btn btn-danger">delete</a>
+        </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'add_student' %}" class="btn btn-success">add students</a>
+</body>
+</html>
